@@ -67,4 +67,4 @@ else:
             if(conclusion == 1):
                 Counts[j] += 1
             elif(conclusion == -1):
-                Counts[i] += 1#
+                Counts[i] += 1
