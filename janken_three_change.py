@@ -51,7 +51,7 @@ for i in range(personNum):
     Hands.append(Persons[i].getHand())
     HandValues.append(Hands[i].getValue())
     Counts.append(0)
-    print("人" + str(i) + "の手：" + Hands[i].getString(),end='')
+    print("人" + str(i) + " の手：" + Hands[i].getString(),end='')
     if(i != personNum - 1):
         print(" v.s. ",end='')
     else:
@@ -61,10 +61,10 @@ print('結果')
 if ((0 in HandValues and 1 in HandValues and 2 in HandValues) or (HandValues.count(0) == personNum) or (HandValues.count(1) == personNum) or (HandValues.count(2) == personNum)):
     print("引き分け")
 else:
-    for i in range(personNum):
-        for j in range(i + 1,personNum):
-            conclusion = Hand.getConcllusion(Hands[i],Hands[j])
-            if(conclusion == 1):
-                Counts[j] += 1
-            elif(conclusion == -1):
-                Counts[i] += 1
+    for i in range(1,personNum):
+        Counts[i] = Hand.getConcllusion(Hands[0],Hands[i])
+               
+if 
+for i in range(1,personNum):
+    if(Counts[i] == 1 or Counts[i] == -1):
+        print("人" + str(i) + " 勝利")
