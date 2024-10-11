@@ -69,5 +69,3 @@ else:
             elif(conclusion == -1):
                 Counts[i] += 1
     
-for i in range(personNum):
-    if()        
