@@ -38,48 +38,36 @@ class Person:
     def getHand():
         return Hand(random.randint(0,2))
 
-    def getHand(num):
-        return Hand(num)    
-
+personNum = 3
 A = Person
 B = Person
 C = Person
+Persons = []
 Hands = []
-ACount = 0
-BCount = 0
-CCount = 0
-AHand = A.getHand(0)
-BHand = B.getHand(2)
-CHand = C.getHand(0)
-HandValues.append(AHand.getValue())
-HandValues.append(BHand.getValue())
-HandValues.append(CHand.getValue())
-print("Aの手：" + AHand.getString() + "v.s. Bの手：" + BHand.getString() + " v.s. Cの手" + CHand.getString() + "->")
+HandValues = []
+Counts = []
+for i in range(personNum):
+    Persons.append(Person)
+    Hands.append(Persons[i].getHand())
+    HandValues.append(Hands[i].getValue())
+    Counts.append(0)
+    print("人" + str(i) + "の手：" + Hands[i].getString(),end='')
+    if(i != personNum - 1):
+        print(" v.s. ",end='')
+    else:
+        print()
 
-if ((0 in HandValues and 1 in HandValues and 2 in HandValues) or (HandValues.count(0) == 3) or (HandValues.count(1) == 3) or (HandValues.count(2) == 3)):
+print('結果')
+if ((0 in HandValues and 1 in HandValues and 2 in HandValues) or (HandValues.count(0) == personNum) or (HandValues.count(1) == personNum) or (HandValues.count(2) == personNum)):
     print("引き分け")
 else:
-    for i in range(3):
-        for i + 1 in range(3):
-    concllusionAB = Hand.getConcllusion(AHand,BHand)[1]
-    concllusionAC= Hand.getConcllusion(AHand,CHand)[1]
-    concllusionBC = Hand.getConcllusion(BHand,CHand)[1]
-    if(concllusionAB == -1):
-        ACount += 1
-    elif(concllusionAB == 1):
-        BCount += 1
-    if(concllusionAC == -1):
-        ACount += 1
-    elif(concllusionAC == 1):
-        CCount += 1
-    if(concllusionBC == -1):
-        BCount += 1
-    elif(concllusionBC == 1):
-        CCount += 1
+    for i in range(personNum):
+        for j in range(i + 1,personNum):
+            conclusion = Hand.getConcllusion(Hands[i],Hands[j])
+            if(conclusion == 1):
+                Counts[j] += 1
+            elif(conclusion == -1):
+                Counts[i] += 1
     
-if(ACount > 0):
-    print("Aの勝ち")
-if(BCount > 0):
-    print("Bの勝ち")
-if(CCount > 0):
-    print("Cの勝ち")
+for i in range(personNum):
+    if()        
