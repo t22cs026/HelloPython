@@ -68,5 +68,3 @@ else:
                 Counts[j] += 1
             elif(conclusion == -1):
                 Counts[i] += 1
-    
-#
