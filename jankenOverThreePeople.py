@@ -35,22 +35,23 @@ class Hand:
         
 class Person:
     
-    def getHand():
+    def getRandomHand():
         return Hand(random.randint(0,2))
+    
+    def getHand(num):
+        return Hand(num)
 
 personNum = 3
-A = Person
-B = Person
-C = Person
 Persons = []
 Hands = []
 HandValues = []
-Counts = []
+Counts = [0] * personNum
+SameHand = [True] * personNum
+
 for i in range(personNum):
     Persons.append(Person)
-    Hands.append(Persons[i].getHand())
+    Hands.append(Persons[i].getRandomHand())
     HandValues.append(Hands[i].getValue())
-    Counts.append(0)
     print("人" + str(i) + " の手：" + Hands[i].getString(),end='')
     if(i != personNum - 1):
         print(" v.s. ",end='')
@@ -62,9 +63,16 @@ if ((0 in HandValues and 1 in HandValues and 2 in HandValues) or (HandValues.cou
     print("引き分け")
 else:
     for i in range(1,personNum):
-        Counts[i] = Hand.getConcllusion(Hands[0],Hands[i])
-               
-if 
-for i in range(1,personNum):
-    if(Counts[i] == 1 or Counts[i] == -1):
+        SameHand[i] = Hands[0].getValue() ==  Hands[i].getValue()
+    differentHandNum = SameHand.index(False)
+    WinHands0 = Hand.getConcllusion(Hands[0],Hands[differentHandNum])[1]
+    for i in range(personNum):
+        if(WinHands0 == -1 and SameHand[i] == True):
+            Counts[i] += 1
+        elif(WinHands0 == 1 and SameHand[i] == False):
+            Counts[i] += 1
+            
+        
+for i in range(personNum):
+    if(Counts[i] == 1):
         print("人" + str(i) + " 勝利")
